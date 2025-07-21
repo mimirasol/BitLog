@@ -1,3 +1,12 @@
+.loginpage {
+    background-image: url("../assets/tempbg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
 /* --------------------- FONTS ---------------------------*/
 
 @font-face {
@@ -60,26 +69,15 @@ html, body {
     scroll-behavior: smooth;
 }
 
-/* ---------------------PAGE 1 CSS ---------------------------*/
-
-.page1 {
-    background-image: url("../assets/tempbg.png");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    min-height: 100vh;
-    overflow: hidden;
-}
 
 .title {
-    text-align: center;
-    margin-top: 13vh;
+    margin: 22vh auto auto 9vw;
 }
 
 .bitlogLogo {
-    width: 55vw; 
+    width: 40vw; 
     display: block;
-    margin: 0 auto -4vh auto;
+    margin: 0 auto -4vh -1.5vw;
     image-rendering: pixelated;
     position: relative;
     animation: pulseGlow 2s ease-in-out infinite,
@@ -93,14 +91,16 @@ html, body {
 .title p {
     font-family: bodytext;
     color: white;
-    font-size: 2.3vw;
-    position: relative;
-    animation: pixelBounce 2s infinite ease-in-out;
+    font-size: 1.7vw;
+}
+
+.title a {
+    text-decoration: none;
 }
 
 .buttons {
     display: flex;
-    margin: 5vh auto auto 34vw;
+    margin: 5vh auto auto 11vw;
 }
 
 .buttonWrapper {
@@ -110,7 +110,7 @@ html, body {
   animation: pixelBlink 0.8s ease-in-out infinite;
 }
 
-.loginIcon {
+.signupIcon {
     width: 15vw;
     display: block;
 }
@@ -119,7 +119,7 @@ html, body {
   position: absolute;
   top: 53%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -53%);
   color: white;
   font-family: subheaderfont;
   font-size: 1.2vw;
@@ -127,38 +127,85 @@ html, body {
   pointer-events: none; 
 }
 
-.loginButton:hover .buttonWrapper,
 .signupButton:hover .buttonWrapper {
   transform: scale(0.95);
   transition: transform 0.2s ease;
   filter: brightness(1.2)
 }
 
-.buttonWrapper {
-  transition: transform 0.2s ease;
+.boxIcon {
+    width: 34vw;
+    display: block;
 }
 
-.footer {
-    text-align: center;
-    margin: 12vh auto;
+.wrapper {
+    display: flex;
+    position: absolute;
+    animation: pixelBounce 3s infinite ease-in-out;
 }
 
-.footer p {
+.boxwrapper {
+    position: relative; 
+    width: fit-content;
+    display: inline-block;
+}
+
+.loginbox {
+    margin: 12vh 9vw auto;
+}
+
+.loginHeader {
+    position: absolute;
+    color: #ffbf00;
+    font-family: architype;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -13%);
+}
+
+.loginForm {
+    position: absolute;
+    top: 30%;  
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; 
+    margin-top: 7vh;
+}
+
+.loginForm label {
+    font-family: bodytext;
+    font-size: 2.2vw;
+    margin-bottom: 0.2vw;
+    margin-left: 3.5vw;
+    color: #ffbf00;
+    align-self: flex-start;
+}
+
+.loginForm input {
+    width: 20vw;
+    padding: 0.4vw;
+    margin-bottom: 1vw;
+    border: 2px solid #e5b93d;
+    background-color: #fff8e7;
+    font-family: bodytext;
+    font-size: 1.2vw;
+    color: #e5b93d;
+}
+
+.enterButton {
+    background: none;
+    border: none;
     font-family: subheaderfont;
-    color: white;
-    line-height: 3vh;
-    font-size: 0.8vw;
-    position: relative;
-    animation: pixelBounce 4s infinite ease-in-out;
+    font-size: 1.6vw;
+    color: #e5b93d;
+    cursor: pointer;
+    text-transform: lowercase;
+    margin-top: 5vh;
 }
 
-.versiontext {
-    margin: -10vh 1vw auto;
+.enterButton:hover {
+    filter: brightness(1.2);
 }
-
-.versiontext p {
-    font-family: subheaderfont;
-    color: white;
-}
-
-/* --------------------- PAGE 1 CSS ---------------------------*/

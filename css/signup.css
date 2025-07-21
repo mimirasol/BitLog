@@ -1,0 +1,211 @@
+.signuppage {
+    background-image: url("../assets/tempbg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* --------------------- FONTS ---------------------------*/
+
+@font-face {
+        font-family: architype;
+        src: url(../fonts/AubetteArchiType.otf);
+}
+
+@font-face {
+        font-family: bodytext;
+        src: url(../fonts/nine0.ttf);
+}
+
+@font-face {
+        font-family: subheaderfont;
+        src: url(../fonts/prstartk.ttf);
+}
+
+/* --------------------- ANIMATIONS ---------------------------*/
+@keyframes pixelBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1vh);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+
+@keyframes pixelBlink {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes pixelPop {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+}
+
+html, body {
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+
+.title {
+    margin: 22vh auto auto 9vw;
+}
+
+.bitlogLogo {
+    width: 40vw; 
+    display: block;
+    margin: 0 auto -4vh -1.5vw;
+    image-rendering: pixelated;
+    position: relative;
+    animation: pulseGlow 2s ease-in-out infinite,
+            pixelPop 1.8s ease-in-out infinite;
+}
+
+.bitlogLogo:hover {
+    filter: brightness(1.2)
+}
+
+.title p {
+    font-family: bodytext;
+    color: white;
+    font-size: 1.7vw;
+}
+
+.title a {
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    margin: 5vh auto auto 11vw;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  animation: pixelBlink 0.8s ease-in-out infinite;
+}
+
+.signupIcon {
+    width: 15vw;
+    display: block;
+}
+
+.buttonText {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+  color: white;
+  font-family: subheaderfont;
+  font-size: 1.2vw;
+  text-align: center;
+  pointer-events: none; 
+}
+
+.signupButton:hover .buttonWrapper {
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+  filter: brightness(1.2)
+}
+
+.boxIcon {
+    width: 34vw;
+    display: block;
+}
+
+.wrapper {
+    display: flex;
+    position: absolute;
+    animation: pixelBounce 3s infinite ease-in-out;
+}
+
+.boxwrapper {
+    position: relative; 
+    width: fit-content;
+    display: inline-block;
+}
+
+.loginbox {
+    margin: 12vh 9vw auto;
+}
+
+.loginHeader {
+    position: absolute;
+    color: #ffbf00;
+    font-family: architype;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -13%);
+}
+
+.loginForm {
+    position: absolute;
+    top: 22%;  
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; 
+    margin-top: 7vh;
+}
+
+.loginForm label {
+    font-family: bodytext;
+    font-size: 2vw;
+    margin-bottom: 0.2vw;
+    margin-left: 3.5vw;
+    color: #ffbf00;
+    align-self: flex-start;
+}
+
+.loginForm input {
+    width: 20vw;
+    padding: 0.4vw;
+    margin-bottom: 1vw;
+    border: 2px solid #e5b93d;
+    background-color: #fff8e7;
+    font-family: bodytext;
+    font-size: 1.2vw;
+    color: #e5b93d;
+}
+
+.enterButton {
+    background: none;
+    border: none;
+    font-family: subheaderfont;
+    font-size: 1.6vw;
+    color: #e5b93d;
+    cursor: pointer;
+    text-transform: lowercase;
+    margin-top: 2vh;
+}
+
+.enterButton:hover {
+    filter: brightness(1.2);
+}
