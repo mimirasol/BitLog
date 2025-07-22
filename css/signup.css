@@ -208,4 +208,5 @@ html, body {
 
 .enterButton:hover {
     filter: brightness(1.2);
+    transition: filter 0.3s ease;
 }
