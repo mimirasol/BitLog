@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($db_role === 'admin') {
                 header("Location: http://localhost/BitLog/test.html"); 
             } elseif ($db_role === 'user') {
-                header("Location: http://localhost/BitLog/test.html");
+                header("Location: http://localhost/BitLog/dashboard_user.php");
             } else {
                 header("Location: ../login.php?error=" . urlencode("Invalid role assigned!"));
             }

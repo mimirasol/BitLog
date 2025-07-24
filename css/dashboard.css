@@ -113,24 +113,51 @@ html, body {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.character img {
+.characterwrapper {
+    position: relative;
     width: 34vw;
-    margin: 8vh 10vh auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.characterwrapper img {
+  margin-top: 10vh;
+  margin-left: 10vw;
+}
+
+.characbg {
+    width: 100%;
+    display: block;
 }
 
 .welcometext {
     position: absolute;
-    top: 20%;
-    left: 23%;
-    transform: translate(-25%, -20%);
-
+    top: 25%;
+    left: 67%;
+    transform: translateX(-50%);
     font-family: subheaderfont;
     text-align: center;
     color: #ffbf00;
+    z-index: 2;
+}
+
+.frog {
+    position: absolute;
+    top: 30%; 
+    left: 35%;
+    transform: translateX(-50%);
+    width: 23vw;
+    z-index: 1; 
+}
+
+.username {
+    color: #54138d;
+    font-size: 3vw;
 }
 
 .overview {
-    background-color: #fdfaff;
+    background-color: #fff6e4;
     border-radius: 3.3vw;
     width: 48vw;
     height: 23vh;
@@ -142,8 +169,8 @@ html, body {
 .list {
     display: flex;
     list-style: none;
-    justify-content: space-between;
-    margin: 3vh auto; 
+    gap: 7vw;
+    margin: 4vh auto; 
     padding: 0;
 }
 
@@ -153,4 +180,82 @@ html, body {
     border-radius: 1vw;
     margin: 0; 
     color: #ffbf00;
+}
+
+.listAmount {
+    display: flex;
+    list-style: none;
+    gap: 10vw;
+    margin: 3vh auto; 
+    padding: 0;
+}
+
+.listAmount li {
+    font-family: bodytext;
+    font-size: 3vw;
+    border-radius: 1vw;
+    margin: 0; 
+    color: #401268;
+}
+
+.label-row,
+.value-row {
+    margin-bottom: 1vh;
+}
+
+.wrapper {
+    position: absolute;
+    animation: pixelBounce 3s infinite ease-in-out;
+}
+
+.expenses {
+    display: flex; 
+    justify-content: space-between;
+    background-color: #401268;
+    border-radius: 3.3vw;
+    width: 48vw;
+    max-height: 30vh; 
+    overflow-y: auto; 
+    margin: 5vh 0 0 42vw;
+    padding: 2vh 3vw;
+    box-sizing: border-box;
+}
+
+.expenses::-webkit-scrollbar {
+    width: 0.8vw;
+}
+
+.expenses::-webkit-scrollbar-thumb {
+    background-color: #ffbf00;
+    border-radius: 1vw;
+}
+
+.categoryExpenseList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.categoryExpenseList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #54138d;
+    border-radius: 2vw;
+    margin-bottom: 2vh;
+    padding: 1.8vh 2vw;
+    font-size: 2vw;
+    font-family: subheaderfont;
+    color: white;
+}
+
+.catname {
+    color: #ffbf00;
+    font-family: bodytext;
+    font-size: 2.5vw;
+}
+
+.catamount {
+    font-size: 2vw;
 }
