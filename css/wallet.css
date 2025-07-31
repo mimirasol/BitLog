@@ -187,6 +187,42 @@ html, body {
     border-radius: 1vw;
 }
 
+.savings {
+    display: flex; 
+    justify-content: space-between;
+    background-color: #401268;
+    border-radius: 3.3vw;
+    width: 35.5vw;
+    height: 45vh; 
+    overflow-y: auto; 
+    margin: -45vh 0 0 51.5vw;
+    padding: 1vh 1vw;
+    box-sizing: border-box;
+}
+
+.savingstext {
+    position: absolute;
+    top: 50%;
+    left: 79.5%;
+    transform: translateX(-50%);
+    font-family: subheaderfont;
+    text-align: center;
+    color: #ffbf00;
+    z-index: 2;
+}
+
+.goal {
+  color: #ffffffff;
+  font-family: bodyText;
+}
+
+.progress {
+  color: #ffffffff;
+  font-size: 1.6vw;
+  white-space: nowrap;
+}
+
+
 .categoryExpenseList {
     list-style: none;
     padding: 0;
@@ -215,4 +251,198 @@ html, body {
 
 .catamount {
     font-size: 2vw;
+}
+
+.set {
+    display: flex;
+    margin: -81vh auto auto 8vw;
+}
+
+.add {
+    display: flex;
+    margin: 65vh auto auto 6vw;
+}
+
+.edit {
+    display: flex;
+    margin: -15.4vh auto auto 59.4vw;
+}
+
+.log {
+    display: flex;
+    margin: -15.4vh auto auto 73.4vw;
+}
+
+.buttonWrapper {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  animation: pixelBlink 0.8s ease-in-out infinite;
+}
+
+.buttonText {
+  position: absolute;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+  color: white;
+  font-family: subheaderfont;
+  font-size: 5vw;
+  text-align: center;
+  pointer-events: none; 
+}
+
+.signupIcon {
+    width: 15vw;
+    display: block;
+}
+
+.addButton:hover .buttonWrapper {
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+  filter: brightness(1.2)
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* darken background */
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 2vw;
+  border-radius: 1vw;
+  width: 30vw;
+  text-align: center;
+  position: relative;
+  font-family: bodyText;
+}
+
+.close-modal {
+  position: absolute;
+  top: 0.5vw;
+  right: 1vw;
+  font-size: 2vw;
+  cursor: pointer;
+  color: #000;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1.2vw;
+    right: 1.5vw;
+    font-size: 2vw;
+    font-family: bodytext;
+    color: #ff4d4d;
+    cursor: pointer;
+    user-select: none;
+    text-shadow: 1px 1px 0 #000;
+    background-color: #fff8e7;
+    border-radius: 0.3vw;
+    padding: 0.2vw 0.5vw;
+    box-shadow: 2px 2px #e5b93d;
+    transform: scale(1);
+    transition: transform 0.1s ease;
+}
+
+.closeButton:hover {
+    transform: scale(1.1);
+    background-color: #ffe2e2;
+}
+
+.inputbox {
+    margin: 12vh 9vw auto;
+}
+
+.boxwrapper {
+    position: relative; 
+    width: fit-content;
+    display: inline-block;
+}
+
+.boxIcon {
+    width: 34vw;
+    display: block;
+}
+
+.inputHeader {
+    position: absolute;
+    color: #ffbf00;
+    font-family: architype;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -13%);
+}
+
+.inputForm {
+    position: absolute;
+    top: 23%;  
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; 
+    margin-top: 7vh;
+}
+
+.inputForm select {
+    width: 20vw;
+    padding: 0.4vw;
+    margin-bottom: 1vw;
+    border: 2px solid #e5b93d;
+    background-color: #fff8e7;
+    font-family: bodytext;
+    font-size: 1.2vw;
+    color: #5a4100;
+    border-radius: 0.5vw;
+    outline: none;
+    appearance: none;
+    background-image: url('assets/arrow-down.svg'); /* optional: custom arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 0.8vw center;
+    background-size: 1vw;
+}
+
+.inputForm select:focus {
+    border-color: #ffbf00;
+    box-shadow: 0 0 0.4vw rgba(255, 191, 0, 0.3);
+}
+
+.inputForm label {
+    font-family: bodytext;
+    font-size: 2.2vw;
+    margin-bottom: 0.2vw;
+    margin-left: 3.5vw;
+    color: #ffbf00;
+    align-self: flex-start;
+}
+
+.inputForm option {
+    background-color: #fff8e7;
+    color: #5a4100;
+    font-family: bodytext;
+    font-size: 1vw;
+}
+
+.inputForm input {
+    width: 20vw;
+    padding: 0.4vw;
+    margin-bottom: 1vw;
+    border: 2px solid #e5b93d;
+    background-color: #fff8e7;
+    color: #5a4100;
+    font-family: bodytext;
+    font-size: 1.2vw;
+    border-radius: 0.6vw; /* adds curved edges */
+    outline: none; /* removes default black outline */
+    transition: border-color 0.2s ease;
 }

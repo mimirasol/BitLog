@@ -35,7 +35,28 @@ if ($result && mysqli_num_rows($result) > 0) {
     }
 }
 
+$sql_savings = "SELECT goal_name, target_amount, current_amount 
+                FROM savings 
+                WHERE user_id = $user_id 
+                ORDER BY created_at DESC 
+                LIMIT 1";
+$result_savings = mysqli_query($conn, $sql_savings);
+$row_savings = mysqli_fetch_assoc($result_savings);
+
+$goal_name = $row_savings['goal_name'] ?? 'No Goal';
+$target_amount = $row_savings['target_amount'] ?? 0;
+$current_amount = $row_savings['current_amount'] ?? 0;
 ?>
+
+<script>
+function openModal() {
+    document.getElementById("modalOverlay").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("modalOverlay").style.display = "none";
+}
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -100,8 +121,86 @@ if ($result && mysqli_num_rows($result) > 0) {
                     ?>
                 </ul>
                 </div>
+
+                <div class="savings">
+                    <span class="savingstext" style="font-size: 3vw;">
+                        SAVINGS<br>
+                        <span class="goal">Goal: <?php echo htmlspecialchars($goal_name); ?></span><br>
+                        <br>
+                        <span class="progress">P <?php echo number_format($current_amount, 2); ?> / <?php echo number_format($target_amount, 2); ?></span>
+                    </span>
+                </div>
+                
+                <div class="set">
+                <a href="signup.php" class="addButton">
+                    <div class="buttonWrapper">
+                    <img src="assets/greenButton.PNG" alt="green button" class="signupIcon">
+                    <span class="buttonText" style="font-size: 1.05vw;">set</span>
+                    </div>
+                </a>
+                </div>
+
+                <div class="add">
+                    <a class="addButton" onclick="openModal()" style="cursor: pointer;">
+                        <div class="buttonWrapper">
+                            <img src="assets/greenButton.PNG" alt="green button" class="signupIcon">
+                            <span class="buttonText" style="font-size: 1.05vw;">add</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="edit">
+                <a href="signup.php" class="addButton">
+                    <div class="buttonWrapper">
+                    <img src="assets/greenButton.PNG" alt="green button" class="signupIcon">
+                    <span class="buttonText" style="font-size: 1.05vw;">edit</span>
+                    </div>
+                </a>
+                </div>
+
+                <div class="log">
+                <a href="signup.php" class="addButton">
+                    <div class="buttonWrapper">
+                    <img src="assets/greenButton.PNG" alt="green button" class="signupIcon">
+                    <span class="buttonText" style="font-size: 1.05vw;">log</span>
+                    </div>
+                </a>
+                </div>
             </div>
         </div>
     </div>
+    <!-- Modal Overlay and Box -->
+            <div id="modalOverlay" class="modal-overlay">
+                <div class="closeButton" onclick="closeModal()">
+                    X
+                </div>
+                <div class="inputbox">
+                    <div class="boxwrapper">
+                        <img src="assets/box.PNG" alt="input box" class="boxIcon">
+                        <span class="inputHeader" style="font-size: 3vw;">EXPENSES</span>
+
+                        <form action="validation/expense.php" method="POST" class="inputForm">
+
+                            <label for="category">Category</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select category</option>
+                                <?php foreach ($categories as $category): ?>
+                                    <option value="<?= htmlspecialchars($category) ?>"><?= htmlspecialchars($category) ?></option>
+                                <?php endforeach; ?>
+                            </select>
+
+                            <label for="amount">Expense Amount</label>
+                            <input type="number" id="amount" name="amount" required placeholder="Enter amount" min="0" step="0.01">
+
+                            <button type="submit" class="addButton" style="background: none; border: none; cursor: pointer;">
+                                <div class="buttonWrapper">
+                                    <img src="assets/greenButton.PNG" alt="green button" class="signupIcon">
+                                    <span class="buttonText" style="font-size: 1.05vw;">add</span>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>

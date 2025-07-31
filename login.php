@@ -32,7 +32,7 @@ session_start();
                     <span class="buttonText" style="font-size: 1.05vw;">SIGN UP</span>
                     </div>
                 </a>
-            </div>
+                </div>
             </div>
 
             <div class="loginbox">
