@@ -5,7 +5,7 @@
     overflow: hidden;
 }
 
-.backgroundimg {
+.backgrounding {
     background-image: url("../assets/bg.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -113,55 +113,12 @@ html, body {
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.characterwrapper {
-    position: relative;
-    width: 34vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.characterwrapper img {
-  margin-top: 10vh;
-  margin-left: 10vw;
-}
-
-.characbg {
-    width: 100%;
-    display: block;
-}
-
-.welcometext {
-    position: absolute;
-    top: 25%;
-    left: 67%;
-    transform: translateX(-50%);
-    font-family: subheaderfont;
-    text-align: center;
-    color: #ffbf00;
-    z-index: 2;
-}
-
-.frog {
-    position: absolute;
-    top: 30%; 
-    left: 35%;
-    transform: translateX(-50%);
-    width: 23vw;
-    z-index: 1; 
-}
-
-.username {
-    color: #54138d;
-    font-size: 3vw;
-}
-
 .overview {
     background-color: #fff6e4;
     border-radius: 3.3vw;
-    width: 48vw;
+    width: 80vw;
     height: 23vh;
-    margin: -84vh 0 0 42vw;
+    margin: 10vh 0 0 7.2vw;
     padding: 2vh 3vw; 
     box-sizing: border-box; 
 }
@@ -169,7 +126,7 @@ html, body {
 .list {
     display: flex;
     list-style: none;
-    gap: 7vw;
+    gap: 18vw;
     margin: 4vh auto; 
     padding: 0;
 }
@@ -185,7 +142,7 @@ html, body {
 .listAmount {
     display: flex;
     list-style: none;
-    gap: 10vw;
+    gap: 24vw;
     margin: 3vh auto; 
     padding: 0;
 }
@@ -213,11 +170,11 @@ html, body {
     justify-content: space-between;
     background-color: #401268;
     border-radius: 3.3vw;
-    width: 48vw;
-    max-height: 53.7vh; 
+    width: 42vw;
+    max-height: 45vh; 
     overflow-y: auto; 
-    margin: 5vh 0 0 42vw;
-    padding: 2vh 3vw;
+    margin: 5vh 0 0 7.2vw;
+    padding: 2vh 2vw;
     box-sizing: border-box;
 }
 

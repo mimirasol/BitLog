@@ -63,7 +63,7 @@ html, body {
 /* ---------------------PAGE 1 CSS ---------------------------*/
 
 .page1 {
-    background-image: url("../assets/tempbg.png");
+    background-image: url("../assets/bg.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
