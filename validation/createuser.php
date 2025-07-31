@@ -18,7 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
     
     if ($stmt->num_rows > 0) {
-        echo "Username or email already exists.";
+        echo "<script>
+                alert('Username or email already exists!');
+                window.location.href = '../login.php';
+            </script>";
         $stmt->close();
         exit();
     }
