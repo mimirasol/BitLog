@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_result($user_id, $db_username, $db_password, $db_role);
         $stmt->fetch();
 
-        if ($password === $db_password) {
+        if (password_verify($password, $db_password)) {
             session_regenerate_id(true);
 
             $_SESSION["user_id"] = $user_id;
