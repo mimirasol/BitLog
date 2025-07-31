@@ -2,8 +2,13 @@
 session_start();
 require "validation/connect.php";
 
-$user_id = $_SESSION["user_id"] ?? null;
-$username = $_SESSION["username"] ?? null;
+if (!isset($_SESSION["user_id"])) {
+    header("Location: homepage.html"); 
+    exit();
+}
+
+$user_id = $_SESSION["user_id"];
+$username = $_SESSION["username"];
 
 $sql_expenses = "SELECT SUM(amount) AS total_expense FROM expenses WHERE user_id = $user_id";
 $result_expenses = mysqli_query($conn, $sql_expenses);
@@ -60,7 +65,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                     <img src="assets/walleticon.png" alt="wallet" class="wallet" style="width: 3vw;">
                 </a>
 
-                <a href="logout.php">
+                <a href="validation/logout.php">
                     <img src="assets/logouticon.png" alt="logout" class="logout" style="width: 3vw; margin-top: 42vh;">
                 </a>
             </div>
@@ -83,22 +88,22 @@ if ($result && mysqli_num_rows($result) > 0) {
                 </div>
 
                 <div class="overview">
-                <div class="label-row">
-                    <ul class="list">
-                        <li>Allowance</li>
-                        <li>Budget</li>
-                        <li>Expenses</li>
-                    </ul>
-                </div>
+                    <div class="label-row">
+                        <ul class="list">
+                            <li>Allowance</li>
+                            <li>Budget</li>
+                            <li>Expenses</li>
+                        </ul>
+                    </div>
 
-                <div class="value-row">
-                    <ul class="listAmount">
-                        <li><?php echo $allowance; ?></li>
-                        <li><?php echo number_format($budget, 2, '.', ''); ?></li>
-                        <li><?php echo $total_expense; ?></li>
-                    </ul>
+                    <div class="value-row">
+                        <ul class="listAmount">
+                            <li><?php echo $allowance; ?></li>
+                            <li><?php echo number_format($budget, 2, '.', ''); ?></li>
+                            <li><?php echo $total_expense; ?></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
                 <div class="expenses">
                 <ul class="categoryExpenseList">
