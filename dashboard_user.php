@@ -25,7 +25,7 @@ $budget = $allowance - $total_expense;
 $sql = "SELECT c.name AS category, 
         IFNULL(SUM(e.amount), 0) AS total
         FROM categories c
-        LEFT JOIN expenses e ON c.category_id = e.category_id AND e.user_id = $user_id
+        LEFT JOIN expenses e ON c.item_id = e.item_id AND e.user_id = $user_id
         WHERE c.user_id = $user_id
         GROUP BY c.name";
 $result = mysqli_query($conn, $sql);

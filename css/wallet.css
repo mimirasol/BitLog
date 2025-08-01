@@ -161,7 +161,9 @@ html, body {
 }
 
 .wrapper {
-    position: absolute;
+    position: relative; /* fix from 'absolute' */
+    width: 100%;
+    height: 100%;
     animation: pixelBounce 3s infinite ease-in-out;
 }
 
@@ -188,27 +190,26 @@ html, body {
 }
 
 .savings {
-    display: flex; 
-    justify-content: space-between;
+    position: absolute;         /* lock in place inside .wrapper */
+    top: 28vh;                  /* adjust to your desired vertical placement */
+    left: 51.6vw;                 /* stick to the right side visually */
+    width: 35.5vw;
+    height: 45vh;
     background-color: #401268;
     border-radius: 3.3vw;
-    width: 35.5vw;
-    height: 45vh; 
-    overflow-y: auto; 
-    margin: -45vh 0 0 51.5vw;
     padding: 1vh 1vw;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 .savingstext {
-    position: absolute;
-    top: 50%;
-    left: 79.5%;
-    transform: translateX(-50%);
     font-family: subheaderfont;
     text-align: center;
     color: #ffbf00;
-    z-index: 2;
+    font-size: 3vw;
 }
 
 .goal {
@@ -254,23 +255,33 @@ html, body {
 }
 
 .set {
-    display: flex;
-    margin: -81vh auto auto 8vw;
+    position: absolute;
+    top: -9vh;
+    left: 8vw;
 }
 
 .add {
-    display: flex;
-    margin: 65vh auto auto 6vw;
+    position: absolute;
+    bottom: 11vh;
+    left: 6vw;
+}
+
+.delete {
+    position: absolute;
+    bottom: 11vh;
+    left: 20vw;
 }
 
 .edit {
-    display: flex;
-    margin: -15.4vh auto auto 59.4vw;
+    position: absolute;
+    bottom: 11vh;
+    left: 59vw;
 }
 
 .log {
-    display: flex;
-    margin: -15.4vh auto auto 73.4vw;
+    position: absolute;
+    bottom: 11vh;
+    left: 73vw;
 }
 
 .buttonWrapper {
@@ -297,7 +308,7 @@ html, body {
     display: block;
 }
 
-.addButton:hover .buttonWrapper {
+.button:hover .buttonWrapper {
   transform: scale(0.95);
   transition: transform 0.2s ease;
   filter: brightness(1.2)
@@ -406,7 +417,7 @@ html, body {
     border-radius: 0.5vw;
     outline: none;
     appearance: none;
-    background-image: url('assets/arrow-down.svg'); /* optional: custom arrow icon */
+    background-image: url('assets/arrow-down.svg');
     background-repeat: no-repeat;
     background-position: right 0.8vw center;
     background-size: 1vw;
