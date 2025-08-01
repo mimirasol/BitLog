@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connect.php"); // adjust path as needed
+include("connect.php");
 
 if (!isset($_SESSION['user_id'])) {
     die("Unauthorized access.");
@@ -12,7 +12,6 @@ $target_amount = $_POST['target_amount'] ?? null;
 $created_at = date('Y-m-d H:i:s');
 
 if ($goal_name !== '' && is_numeric($target_amount)) {
-    // Check if the user already has a savings goal
     $check_sql = "SELECT goal_id FROM savings WHERE user_id = ?";
     $stmt_check = $conn->prepare($check_sql);
     $stmt_check->bind_param("i", $user_id);
@@ -20,14 +19,12 @@ if ($goal_name !== '' && is_numeric($target_amount)) {
     $stmt_check->store_result();
 
     if ($stmt_check->num_rows > 0) {
-        // Update existing goal
         $update_sql = "UPDATE savings SET goal_name = ?, target_amount = ?, current_amount = 0, created_at = ? WHERE user_id = ?";
         $stmt_update = $conn->prepare($update_sql);
         $stmt_update->bind_param("sdsi", $goal_name, $target_amount, $created_at, $user_id);
         $stmt_update->execute();
         $stmt_update->close();
     } else {
-        // Insert new savings goal
         $insert_sql = "INSERT INTO savings (user_id, goal_name, target_amount, current_amount, created_at)
                        VALUES (?, ?, ?, 0, ?)";
         $stmt_insert = $conn->prepare($insert_sql);
